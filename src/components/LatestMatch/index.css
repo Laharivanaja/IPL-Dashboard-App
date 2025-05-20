@@ -1,0 +1,26 @@
+/* Write your CSS here */
+.container {
+  background-color: #1e293b;
+  color: #ffffff;
+  border-color: #475569;
+  border-radius: 10px;
+  display:flex;
+  flex-wrap: wrap;
+}
+.firstpart {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.secondpart {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+.image {
+  display: flex;
+  justify-content: cneter;
+  align-items: center;
+}

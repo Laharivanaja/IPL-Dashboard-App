@@ -1,0 +1,11 @@
+/* Write your CSS here */
+.background {
+  background-color: #0f172a;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+.image {
+  height: 100px;
+  width: 100px;
+}

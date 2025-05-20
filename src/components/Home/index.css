@@ -1,0 +1,16 @@
+/* Write your CSS here */
+.background {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/ipl-dashboard-lg-bg.png');
+  display: flex;
+  flex-direction: row;
+  font-family: 'Roboto';
+  color: #ffffff33;
+  color: #ffffff;
+}
+.blog-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 50vh;
+  width: 50vw;
+}
