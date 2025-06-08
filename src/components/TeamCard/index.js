@@ -19,7 +19,7 @@ class TeamCard extends Component {
   getTeamsData = async () => {
     const response = await fetch('https://apis.ccbp.in/ipl')
     console.log('https://apis.ccbp.in/ipl')
-    const statusCode = response.status
+
     const data = await response.json()
     const formattedData = data.teams.map(eachItem => ({
       id: eachItem.id,
@@ -35,7 +35,7 @@ class TeamCard extends Component {
     return (
       <div className="blog-list-container">
         {isLoading ? (
-          <div testid="loader">
+          <div data-testid="loader">
             <Loader type="Oval" color="#ffffff" height={50} width={50} />
           </div>
         ) : (

@@ -1,12 +1,7 @@
-// Write your code here
 import {Component} from 'react'
-
+import {PieChart, Pie, Legend, Cell, ResponsiveContainer} from 'recharts'
 import Loader from 'react-loader-spinner'
-
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css'
-
 import LatestMatch from '../LatestMatch'
-
 import MatchCard from '../MatchCard'
 
 import './index.css'
@@ -22,8 +17,10 @@ class TeamMatches extends Component {
     const {match} = this.props
     const {params} = match
     const {id} = params
+
     const response = await fetch(`https://apis.ccbp.in/ipl/${id}`)
     const data = await response.json()
+
     const formatteddata = {
       teamBannerUrl: data.team_banner_url,
       latestMatchDetails: {
@@ -53,39 +50,102 @@ class TeamMatches extends Component {
         matchStatus: each.match_status,
       })),
     }
-    // console.log(formatteddata)
+
     this.setState({teamMatchesList: formatteddata, isLoading: false})
+  }
+
+  onClickLogout = () => {
+    const {history} = this.props
+    history.replace('/')
   }
 
   render() {
     const {teamMatchesList, isLoading} = this.state
-    console.log(teamMatchesList)
+
+    if (isLoading) {
+      return (
+        <div className="loader-container" data-testid="loader">
+          <Loader type="Oval" color="#ffffff" height={50} width={50} />
+        </div>
+      )
+    }
+
+    const matchStatusCounts = [
+      {
+        name: 'Won',
+        count: teamMatchesList.recentMatches.filter(
+          match => match.matchStatus === 'Won',
+        ).length,
+      },
+      {
+        name: 'Lost',
+        count: teamMatchesList.recentMatches.filter(
+          match => match.matchStatus === 'Lost',
+        ).length,
+      },
+      {
+        name: 'Draw',
+        count: teamMatchesList.recentMatches.filter(
+          match => match.matchStatus === 'Draw',
+        ).length,
+      },
+    ]
+
     return (
-      <div>
-        {isLoading ? (
-          <div testid="loader">
-            <Loader type="Oval" color="#ffffff" height={50} width={50} />
-          </div>
-        ) : (
-          <div className="back-container">
-            <img src={teamMatchesList.teamBannerUrl} alt="team banner" />
-            <div>
-              <h1 class="heading">Latest Matches</h1>
-              <LatestMatch
-                latestMatchDetails={teamMatchesList.latestMatchDetails}
+      <div className="back-container">
+        <img
+          src={teamMatchesList.teamBannerUrl}
+          alt="team banner"
+          className="team-banner"
+        />
+        <h1 className="heading">Latest Matches</h1>
+        <LatestMatch latestMatchDetails={teamMatchesList.latestMatchDetails} />
+
+        <ul className="match-list">
+          {teamMatchesList.recentMatches.map(each => (
+            <MatchCard matchCardDetails={each} key={each.id} />
+          ))}
+        </ul>
+
+        <h1 className="heading">Match Status Overview</h1>
+        <div data-testid="team-matches-pie-chart">
+          <ResponsiveContainer width="100%" height={300}>
+            <PieChart>
+              <Pie
+                cx="50%"
+                cy="50%"
+                data={matchStatusCounts}
+                startAngle={0}
+                endAngle={360}
+                innerRadius="40%"
+                outerRadius="70%"
+                dataKey="count"
+                label
+              >
+                <Cell name="Won" fill="#fecba6" />
+                <Cell name="Lost" fill="#b3d23f" />
+                <Cell name="Draw" fill="#a44c9e" />
+              </Pie>
+              <Legend
+                iconType="circle"
+                layout="horizontal"
+                verticalAlign="bottom"
+                align="center"
               />
-            </div>
-            <div>
-              <ul>
-                {teamMatchesList.recentMatches.map(each => (
-                  <MatchCard matchCardDetails={each} key={each.id} />
-                ))}
-              </ul>
-            </div>
-          </div>
-        )}
+            </PieChart>
+          </ResponsiveContainer>
+        </div>
+
+        <button
+          type="button"
+          onClick={this.onClickLogout}
+          className="back-button"
+        >
+          Back
+        </button>
       </div>
     )
   }
 }
+
 export default TeamMatches
