@@ -108,8 +108,9 @@ class TeamMatches extends Component {
         </ul>
 
         <h1 className="heading">Match Status Overview</h1>
-        <div data-testid="team-matches-pie-chart">
-          <ResponsiveContainer width="100%" height={300}>
+
+        <div data-testid="team-matches-pie-chart" className="pie-chart-wrapper">
+          <ResponsiveContainer width="100%" height="100%">
             <PieChart>
               <Pie
                 cx="50%"

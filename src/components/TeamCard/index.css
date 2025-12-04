@@ -1,6 +1,38 @@
-/* Write your CSS here */
 .blog-list-container {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.blog-list-container [data-testid='loader'] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+}
+
+@media (max-width: 1024px) {
+  .blog-list-container {
+    gap: 15px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .blog-list-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-list-container {
+    gap: 15px;
+    padding: 5px;
+  }
 }

@@ -1,7 +1,95 @@
-/* Write your CSS here */
 .back-container {
   background-image: linear-gradient(to bottom, #a4261d, #d91c1f);
-}
-.heading {
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.team-banner {
+  width: 80%;
+  max-width: 800px;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 2rem;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.match-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.back-button {
+  background-color: #ffffff;
+  color: #a4261d;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  background-color: #a4261d;
+  color: #ffffff;
+}
+
+.pie-chart-wrapper {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+  .heading {
+    font-size: 1.8rem;
+  }
+  .team-banner {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1.6rem;
+  }
+  .team-banner {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 1.4rem;
+  }
+  .back-button {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
 }
