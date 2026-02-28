@@ -1,62 +1,18 @@
 .background {
-  background-image: url('https://assets.ccbp.in/frontend/react-js/ipl-dashboard-lg-bg.png');
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  background-image: url("https://assets.ccbp.in/frontend/react-js/ipl-dashboard-lg-bg.png");
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  padding: 20px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Roboto', sans-serif;
-  color: #ffffff;
-}
-
-.background img {
-  width: 120px;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.background h1 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  text-align: center;
+  width: 100vw !important; /* Forces full screen width */
+  margin: 0;
+  padding: 40px 0px;
 }
 
 .blog-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-  max-width: 1200px;
-}
-
-@media (max-width: 1024px) {
-  .background h1 {
-    font-size: 2rem;
-  }
-  .blog-list {
-    gap: 15px;
-  }
-}
-
-@media (max-width: 768px) {
-  .background {
-    padding: 20px;
-  }
-  .background h1 {
-    font-size: 1.8rem;
-  }
-  .blog-list {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .background h1 {
-    font-size: 1.5rem;
-  }
+  width: 100% !important; /* Allows the list to expand past the sidebar */
+  display: flex !important;
+  justify-content: center !important;
 }
