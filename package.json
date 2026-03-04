@@ -3,16 +3,21 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-router-dom": "5.2.0",
-    "react-loader-spinner": "4.0.0",
-    "recharts": "2.15.3",
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/react": "11.2.5",
-    "@testing-library/user-event": "12.6.2"
+    "@testing-library/user-event": "12.6.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
+    "react-loader-spinner": "4.0.0",
+    "react-router-dom": "5.2.0",
+    "recharts": "2.15.3"
   },
   "devDependencies": {
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-plugin-import": "2.32.0",
+    "eslint-plugin-jsx-a11y": "6.10.2",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "4.6.2",
     "react-scripts": "4.0.3"
   },
   "scripts": {
